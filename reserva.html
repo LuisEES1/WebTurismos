@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Viajes - CosmoTours2300</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        body {
+            background: url('img/fondoweb.jpg') no-repeat center center fixed;
+            background-size: cover;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: #343a40;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .card {
+            border: none;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #d00027;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        li,
+        a {
+            font-weight: bold;
+        }
+
+        .navimg {
+            height: 40px;
+            padding-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container-fluid">
+            <img class="navimg" src="img/CosmoTours2300.png">
+            <a class="navbar-brand text-danger" href="#">CosmoTours</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="login.html">Cerrar sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="panelusuario.html">Panel de Usuario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reserva.html">Reservas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gestiondestinos.html">Gestión de Destinos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="opiniones.html">Historial de Viajes y Opiniones</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-header text-center">Reserva tu Viaje Intergaláctico</div>
+                    <div class="card-body">
+                        <form id="reservaForm">
+                            <!-- Aeropuerto de Origen -->
+                            <div class="mb-3 form-group">
+                                <label for="origen">Aeropuerto de Origen (España)</label>
+                                <select class="form-control" id="origen" required>
+                                    <option value="">Selecciona tu aeropuerto de origen</option>
+                                    <option value="Madrid-Barajas (MAD)">Madrid-Barajas (MAD)</option>
+                                    <option value="Barcelona-El Prat (BCN)">Barcelona-El Prat (BCN)</option>
+                                    <option value="Málaga-Costa del Sol (AGP)">Málaga-Costa del Sol (AGP)</option>
+                                    <option value="Sevilla (SVQ)">Sevilla (SVQ)</option>
+                                    <option value="Valencia (VLC)">Valencia (VLC)</option>
+                                    <option value="Bilbao (BIO)">Bilbao (BIO)</option>
+                                </select>
+                            </div>
+
+                            <!-- Destino -->
+                            <div class="mb-3 form-group">
+                                <label for="destino">Destino</label>
+                                <select class="form-control" id="destino" required>
+                                    <option value="">Selecciona un destino</option>
+                                    <option value="Marte">Marte</option>
+                                    <option value="Proxima b">Proxima b</option>
+                                    <option value="Kepler-22b">Kepler-22b</option>
+                                    <option value="Titán">Titán</option>
+                                    <option value="Europa">Europa</option>
+                                    <option value="Galaxia de Andrómeda">Galaxia de Andrómeda</option>
+                                </select>
+                            </div>
+
+                            <!-- Fecha de Ida -->
+                            <div class="mb-3 form-group">
+                                <label for="fecha-ida">Fecha de Ida</label>
+                                <input type="date" class="form-control" id="fecha-ida" required>
+                            </div>
+
+                            <!-- Viaje de ida y vuelta -->
+                            <div class="mb-3 form-group">
+                                <input type="checkbox" id="ida-vuelta" class="form-check-input">
+                                <label class="form-check-label" for="ida-vuelta">Viaje de ida y vuelta</label>
+                            </div>
+
+                            <!-- Fecha de Vuelta -->
+                            <div class="mb-3 form-group" id="fecha-vuelta-container" style="display: none;">
+                                <label for="fecha-vuelta">Fecha de Vuelta</label>
+                                <input type="date" class="form-control" id="fecha-vuelta">
+                            </div>
+
+                            <button type="submit" class="btn btn-danger w-100">Reservar Ahora</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Resumen del Viaje -->
+                <div class="card mt-4">
+                    <div class="card-header text-center">Resumen del Viaje</div>
+                    <div class="card-body">
+                        <p><strong>Origen:</strong> <span id="resumen-origen">-</span></p>
+                        <p><strong>Destino:</strong> <span id="resumen-destino">-</span></p>
+                        <p><strong>Fecha de Ida:</strong> <span id="resumen-ida">-</span></p>
+                        <p><strong>Fecha de Vuelta:</strong> <span id="resumen-vuelta">-</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mostrar/ocultar campo de fecha de vuelta según el checkbox
+        document.getElementById("ida-vuelta").addEventListener("change", function () {
+            var fechaVueltaContainer = document.getElementById("fecha-vuelta-container");
+            fechaVueltaContainer.style.display = this.checked ? "block" : "none";
+        });
+
+        // Manejo del envío del formulario con validación de fechas
+        document.getElementById("reservaForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Valida que se haya seleccionado el aeropuerto de origen
+            var origen = document.getElementById("origen").value;
+            if (!origen) {
+                alert("Por favor, selecciona un aeropuerto de origen.");
+                return;
+            }
+
+            // Si el viaje es de ida y vuelta, se valida que la fecha de vuelta no sea anterior a la fecha de ida.
+            if (document.getElementById("ida-vuelta").checked) {
+                var fechaIdaValue = document.getElementById("fecha-ida").value;
+                var fechaVueltaValue = document.getElementById("fecha-vuelta").value;
+                var fechaIda = new Date(fechaIdaValue);
+                var fechaVuelta = new Date(fechaVueltaValue);
+
+                if (fechaVuelta < fechaIda) {
+                    alert("La fecha de vuelta no puede ser anterior a la fecha de ida.");
+                    return; // Detiene el envío del formulario
+                }
+            }
+
+            // Actualizar el resumen del viaje
+            document.getElementById("resumen-origen").innerText = document.getElementById("origen").value || "-";
+            document.getElementById("resumen-destino").innerText = document.getElementById("destino").value || "-";
+            document.getElementById("resumen-ida").innerText = document.getElementById("fecha-ida").value || "-";
+
+            // Si el viaje es de ida y vuelta, muestra la fecha elegida. De lo contrario, muestra "Solo ida".
+            document.getElementById("resumen-vuelta").innerText = document.getElementById("ida-vuelta").checked
+                ? (document.getElementById("fecha-vuelta").value || "-")
+                : "Solo ida";
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Destinos - CosmoTours2300</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        body {
+            background: url('img/fondoweb.jpg') no-repeat center center fixed;
+            background-size: cover;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: #343a40;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            border: none;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+        }
+
+        .card-header {
+            background-color: #d00027;
+            color: #ffffff;
+            font-weight: bold;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .destino-img {
+            border-radius: 10px;
+            width: 100%;
+            height: auto;
+        }
+
+        h2 {
+            color: #ffffff;
+        }
+
+        li,
+        a {
+            font-weight: bold;
+        }
+
+        .navimg {
+            height: 40px;
+            padding-right: 10px;
+        }
+
+        /* Estilos para la parte de gestión */
+        .item-row {
+            display: flex;
+            flex-direction: column;
+            /* Permite que el título y descripción vayan uno debajo del otro */
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .item-row:last-child {
+            border-bottom: none;
+        }
+
+        .item-title {
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+
+        .item-desc {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .show-more-btn {
+            margin-top: 10px;
+        }
+
+        /* Secciones con iconos y botón "Editar" (aeropuertos, planetas) */
+        .item-row-editable {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .item-row-editable:last-child {
+            border-bottom: none;
+        }
+
+        .item-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .item-info img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .item-name {
+            margin-left: 10px;
+            flex: 1;
+        }
+
+        .btn-edit {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container-fluid">
+            <img class="navimg" src="img/CosmoTours2300.png">
+            <a class="navbar-brand text-danger" href="#">CosmoTours</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="login.html">Cerrar sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="panelusuario.html">Panel de Usuario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reserva.html">Reservas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gestiondestinos.html">Gestión de Destinos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="opiniones.html">Historial de Viajes y Opiniones</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Título principal que tenías -->
+        <h2 class="text-center my-4">Explora Nuestros Destinos Intergalácticos</h2>
+
+        <!-- Row con las 6 tarjetas de destinos -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="img/marte (1) (1).jpg" class="destino-img" alt="Marte">
+                    <div class="card-body">
+                        <h5 class="card-title">Marte</h5>
+                        <p class="card-text">Explora la colonia de Nueva Horizonte y vive la experiencia marciana con
+                            paisajes rocosos y excursiones en gravedad reducida.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="img/proximab (1) (1).png" class="destino-img" alt="Proxima b">
+                    <div class="card-body">
+                        <h5 class="card-title">Proxima b</h5>
+                        <p class="card-text">Un exoplaneta en la zona habitable de Proxima Centauri. Experimenta
+                            amaneceres binarios y paisajes nunca antes vistos.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="img/kepler (1) (1).jpg" class="destino-img" alt="Kepler-22b">
+                    <div class="card-body">
+                        <h5 class="card-title">Kepler-22b</h5>
+                        <p class="card-text">Con océanos interminables y posibles formas de vida acuática, Kepler-22b es
+                            una de las opciones más exóticas para viajeros intergalácticos.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="img/titan (1) (1).jpeg" class="destino-img" alt="Titán">
+                    <div class="card-body">
+                        <h5 class="card-title">Titán</h5>
+                        <p class="card-text">La luna de Saturno con mares de metano y un ambiente propicio para la
+                            exploración científica.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="img/andromeda (1) (1).jpg" class="destino-img" alt="Andrómeda">
+                    <div class="card-body">
+                        <h5 class="card-title">Galaxia de Andrómeda</h5>
+                        <p class="card-text">Viaja fuera de la Vía Láctea y explora la galaxia vecina en una experiencia
+                            sin precedentes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="img/europa (1) (1).jpg" class="destino-img" alt="Europa">
+                    <div class="card-body">
+                        <h5 class="card-title">Europa</h5>
+                        <p class="card-text">El satélite de Júpiter con un océano subterráneo que podría albergar vida
+                            extraterrestre.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nuevo bloque: Gestión de Estaciones, Aeropuertos, Planetas y Especies -->
+        <h2 class="text-center my-4">Gestión de Destinos y Elementos Relacionados</h2>
+
+        <!-- Sección: Estaciones Espaciales (SIN foto, SIN botón de edición, con descripción) -->
+        <div class="card">
+            <div class="card-header">Estaciones Espaciales</div>
+            <div class="card-body">
+                <div class="item-row">
+                    <div class="item-title">Estación Espacial Alfa</div>
+                    <div class="item-desc">La primera base de investigación orbital alrededor de la Tierra.</div>
+                </div>
+                <div class="item-row">
+                    <div class="item-title">Estación Orbital Galileo</div>
+                    <div class="item-desc">Un laboratorio flotante para el estudio de Júpiter y sus lunas.</div>
+                </div>
+                <div class="item-row">
+                    <div class="item-title">Base Espacial Terrazul</div>
+                    <div class="item-desc">Plataforma avanzada en órbita sincrónica para lanzamientos hacia Marte.</div>
+                </div>
+                <!-- Botón "Mostrar más" de la sección -->
+                <button class="btn btn-danger btn-sm show-more-btn">Mostrar más</button>
+            </div>
+        </div>
+
+        <!-- Sección: Información de Especies Alienígenas -->
+        <div class="card">
+            <div class="card-header">Información de Especies Alienígenas</div>
+            <div class="card-body">
+                <div class="item-row">
+                    <div class="item-title">Especie Vorlon</div>
+                    <div class="item-desc">Entidad avanzada con habilidades telepáticas; requiere protocolos de contacto
+                        estrictos.</div>
+                </div>
+                <div class="item-row">
+                    <div class="item-title">Especie Vega Prime</div>
+                    <div class="item-desc">Formas de vida anfibia del sistema Vega; comercio pacífico de tecnología y
+                        cultura.</div>
+                </div>
+                <div class="item-row">
+                    <div class="item-title">Especie Orión</div>
+                    <div class="item-desc">Conocidos por sus ciudades flotantes y su habilidad de comunicación
+                        holográfica.</div>
+                </div>
+                <button class="btn btn-danger btn-sm show-more-btn">Mostrar más</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Ejemplo de manejo del botón "Mostrar más"
+        const showMoreButtons = document.querySelectorAll('.show-more-btn');
+        showMoreButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Aquí puedes cargar o mostrar más elementos de esta sección.');
+            });
+        });
+
+        // Ejemplo de manejo del botón "Editar" (solo en aeropuertos y planetas)
+        const editButtons = document.querySelectorAll('.btn-edit');
+        editButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('Lógica para editar este elemento (abrir modal, formulario, etc.).');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
