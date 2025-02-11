@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CosmoTours2300</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        body {
+            background: url('img/fondoweb.webp') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            color: #f8f9fa;
+        }
+
+        .login-container {
+            max-width: 400px;
+            padding: 20px;
+            background: #082236;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 2px solid #082236;
+            border-radius: 15px;
+        }
+
+        h1,
+        label {
+            color: #f8f9fa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <img class="img-fluid pb-3" src="img/CosmoTours2300.png" alt="CosmoTours2300 Logo">
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" class="form-control" id="username" placeholder="Ingresa tu usuario" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mt-4">Entrar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            window.location.href = "panelusuario.html";
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
